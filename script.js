@@ -1,30 +1,27 @@
 const countdown = () => {
-    const targetDate = new Date("April 16, 2026 00:00:00").getTime();
+    const target = new Date("April 16, 2026 00:00:00").getTime();
+    const start = new Date("January 1, 2026 00:00:00").getTime();
     const now = new Date().getTime();
-    const gap = targetDate - now;
+    const gap = target - now;
 
     // Time math
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
+    const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
-    // Calculate
     const d = Math.floor(gap / day);
     const h = Math.floor((gap % day) / hour);
     const m = Math.floor((gap % hour) / minute);
     const s = Math.floor((gap % minute) / second);
 
-    // Update UI
-    document.getElementById("days").innerText = d < 10 ? '0' + d : d;
-    document.getElementById("hours").innerText = h < 10 ? '0' + h : h;
-    document.getElementById("minutes").innerText = m < 10 ? '0' + m : m;
-    document.getElementById("seconds").innerText = s < 10 ? '0' + s : s;
+    document.getElementById("days").innerText = d.toString().padStart(2, '0');
+    document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+    document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+    document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
 
-    if (gap < 0) {
-        document.querySelector(".status-text").innerText = "DECISIONS ARE OUT!";
-        document.getElementById("countdown").innerHTML = "<h2>Good Luck!</h2>";
-    }
+    // Progress Bar Logic
+    const totalDuration = target - start;
+    const elapsed = now - start;
+    const progressPercent = Math.min(Math.max((elapsed / totalDuration) * 100, 0), 100);
+    document.getElementById("progressBar").style.width = progressPercent + "%";
 };
 
 setInterval(countdown, 1000);
