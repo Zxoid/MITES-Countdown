@@ -1,225 +1,128 @@
 :root {
     --mit-red: #A31F34;
-    --dark-bg: #0B0B0B;
-    --card-bg: #1A1A1A;
-    --text-white: #FFFFFF;
-    --text-gray: #888888;
+    --glow: rgba(163, 31, 52, 0.6);
+    --bg: #050505;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--dark-bg);
-    color: var(--text-white);
-    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    text-transform: uppercase;
 }
 
-/* Subtle background effect */
-.stars {
-    position: absolute;
+/* Old CRT Scanline Effect */
+.scanline {
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #1a0505 0%, #0b0b0b 100%);
-    z-index: -1;
+    height: 100px;
+    z-index: 10;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 6s linear infinite;
+}
+
+@keyframes scanline {
+    0% { bottom: 100%; }
+    100% { bottom: -100%; }
 }
 
 .container {
+    width: 90%;
+    max-width: 900px;
     text-align: center;
-    max-width: 800px;
-    padding: 2rem;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-radius: 2px;
 }
 
-.logo {
-    width: 250px;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 10px rgba(163, 31, 52, 0.3));
-}
-
-.status-text {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
+.terminal-header {
+    font-size: 0.8rem;
     color: var(--mit-red);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--mit-red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--mit-red);
+    animation: blink 1s infinite;
 }
 
 #countdown {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-}
-
-.time-block {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    min-width: 100px;
-    border-bottom: 4px solid var(--mit-red);
-    transition: transform 0.3s ease;
-}
-
-.time-block:hover {
-    transform: translateY(-5px);
-}
-
-.time-block span {
-    display: block;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 3rem;
-    font-weight: 900;
-}
-
-.time-block p {
-    margin: 0;
-    font-size: 0.7rem;
-    color: var(--text-gray);
-    letter-spacing: 2px;
-}
-
-.actions p {
-    color: var(--text-gray);
-    margin-bottom: 1.5rem;
-}
-
-.discord-btn {
-    display: inline-block;
-    background-color: var(--mit-red);
-    color: white;
-    text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(163, 31, 52, 0.4);
-}
-
-.discord-btn:hover {
-    background-color: #C1273D;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(163, 31, 52, 0.6);
-}
-
-@media (max-width: 600px) {
-    #countdown { gap: 0.5rem; }
-    .time-block { min-width: 70px; padding: 1rem; }
-    .time-block span { font-size: 1.8rem; }
-}:root {
-    --mit-red: #A31F34;
-    --dark-bg: #0B0B0B;
-    --card-bg: #1A1A1A;
-    --text-white: #FFFFFF;
-    --text-gray: #888888;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--dark-bg);
-    color: var(--text-white);
-    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Subtle background effect */
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #1a0505 0%, #0b0b0b 100%);
-    z-index: -1;
-}
-
-.container {
-    text-align: center;
-    max-width: 800px;
-    padding: 2rem;
-}
-
-.logo {
-    width: 250px;
-    margin-bottom: 2rem;
-    filter: drop-shadow(0 0 10px rgba(163, 31, 52, 0.3));
-}
-
-.status-text {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
-    color: var(--mit-red);
+    gap: 20px;
+    font-size: 5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
 }
 
-#countdown {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-}
-
-.time-block {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    min-width: 100px;
-    border-bottom: 4px solid var(--mit-red);
-    transition: transform 0.3s ease;
-}
-
-.time-block:hover {
-    transform: translateY(-5px);
-}
-
-.time-block span {
-    display: block;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 3rem;
-    font-weight: 900;
-}
-
-.time-block p {
-    margin: 0;
+.unit p {
     font-size: 0.7rem;
-    color: var(--text-gray);
+    margin: 0;
+    color: #555;
     letter-spacing: 2px;
 }
 
-.actions p {
-    color: var(--text-gray);
-    margin-bottom: 1.5rem;
+.separator {
+    color: var(--mit-red);
+    padding-bottom: 25px;
+    text-shadow: 0 0 15px var(--glow);
 }
 
-.discord-btn {
-    display: inline-block;
-    background-color: var(--mit-red);
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: #111;
+    margin: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--mit-red);
+    width: 0%;
+    box-shadow: 0 0 20px var(--mit-red);
+    transition: width 1s linear;
+}
+
+.cyber-btn {
+    position: relative;
+    padding: 15px 40px;
+    border: 1px solid var(--mit-red);
     color: white;
     text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
     font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(163, 31, 52, 0.4);
+    letter-spacing: 3px;
+    transition: 0.3s;
+    display: inline-block;
 }
 
-.discord-btn:hover {
-    background-color: #C1273D;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(163, 31, 52, 0.6);
+.cyber-btn:hover {
+    background: var(--mit-red);
+    box-shadow: 0 0 30px var(--glow);
 }
+
+@keyframes blink { 50% { opacity: 0; } }
 
 @media (max-width: 600px) {
-    #countdown { gap: 0.5rem; }
-    .time-block { min-width: 70px; padding: 1rem; }
-    .time-block span { font-size: 1.8rem; }
+    #countdown { font-size: 2rem; gap: 10px; }
 }
