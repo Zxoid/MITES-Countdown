@@ -3,48 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MITES Countdown</title>
+    <title>MITES | INTERNAL_CLOCK</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="scanline"></div>
+    <div class="container">
+        <div class="terminal-header">
+            <span class="status-dot"></span> SYSTEM_ACTIVE // MITES_DECISION_2026
+        </div>
 
-    <div class="stars"></div>
-
-    <main class="container">
-        <header>
-            <img src="image_71346f.png" alt="MITES Logo" class="logo">
-        </header>
-
-        <section class="countdown-section">
-            <h1 class="status-text">DECISION DAY COUNTDOWN</h1>
+        <div class="timer-wrapper">
             <div id="countdown">
-                <div class="time-block">
-                    <span id="days">00</span>
-                    <p>DAYS</p>
-                </div>
-                <div class="time-block">
-                    <span id="hours">00</span>
-                    <p>HOURS</p>
-                </div>
-                <div class="time-block">
-                    <span id="minutes">00</span>
-                    <p>MINS</p>
-                </div>
-                <div class="time-block">
-                    <span id="seconds">00</span>
-                    <p>SECS</p>
-                </div>
+                <div class="unit"><span id="days">00</span><p>DD</p></div>
+                <div class="separator">:</div>
+                <div class="unit"><span id="hours">00</span><p>HH</p></div>
+                <div class="separator">:</div>
+                <div class="unit"><span id="minutes">00</span><p>MM</p></div>
+                <div class="separator">:</div>
+                <div class="unit"><span id="seconds">00</span><p>SS</p></div>
             </div>
-        </section>
+        </div>
 
-        <footer class="actions">
-            <p>Join the community of applicants and alumni</p>
-            <a href="https://discord.gg/fXeNP3dGHS" target="_blank" class="discord-btn">
-                JOIN THE DISCORD
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="links">
+            <a href="https://discord.gg/fXeNP3dGHS" target="_blank" class="cyber-btn">
+                <span class="btn-text">ACCESS_DISCORD</span>
+                <span class="btn-glitch"></span>
             </a>
-        </footer >
-    </main>
-
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
