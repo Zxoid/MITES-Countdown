@@ -1,6 +1,8 @@
 const countdown = () => {
-    const target = new Date("April 21, 2026 00:00:00").getTime();
-    const start = new Date("January 1, 2026 00:00:00").getTime();
+    // Updated to 8:00 PM EDT (UTC-4). 
+    // If you strictly need EST (no daylight savings, UTC-5), change "-04:00" to "-05:00"
+    const target = new Date("2026-04-21T20:00:00-04:00").getTime();
+    const start = new Date("2026-01-01T00:00:00-05:00").getTime(); // Adjusted start to EST for consistency
     const now = new Date().getTime();
     const gap = target - now;
 
